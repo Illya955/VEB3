@@ -1,0 +1,36 @@
+<section class="courses">
+
+  <h2>Наші курси</h2>
+
+  <p *ngIf="message" class="message">
+    {{ message }}
+  </p>
+
+  <div class="course-list">
+
+    <app-course-card
+      courseName="Angular"
+      teacher="Іван Петренко"
+      duration="20 годин"
+      (enrolled)="onCourseEnrolled($event)"
+    ></app-course-card>
+
+    <app-course-card
+      courseName="TypeScript"
+      teacher="Олена Коваль"
+      duration="15 годин"
+      (enrolled)="onCourseEnrolled($event)"
+    ></app-course-card>
+
+    <app-course-card
+      courseName="Web Development"
+      teacher="Андрій Шевченко"
+      duration="30 годин"
+      (enrolled)="onCourseEnrolled($event)"
+    ></app-course-card>
+
+  </div>
+
+</section>
+
+

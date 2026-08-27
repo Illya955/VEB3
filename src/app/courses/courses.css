@@ -1,0 +1,29 @@
+.courses {
+  padding: 40px;
+  background-color: #f5f7fa;
+  min-height: 500px;
+}
+
+.courses h2 {
+  text-align: center;
+  color: #333;
+  font-size: 30px;
+}
+
+.course-list {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.message {
+  text-align: center;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 500px;
+  font-weight: bold;
+}

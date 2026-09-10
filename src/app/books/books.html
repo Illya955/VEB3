@@ -1,0 +1,17 @@
+<h1>Список книг</h1>
+
+@for (book of books; track book.id) {
+  <div>
+    <h2>{{ book.title }}</h2>
+
+    <p>
+      Автор: {{ book.author }}
+    </p>
+
+    <a [routerLink]="['/book', book.id]">
+      Детальніше
+    </a>
+
+    <hr>
+  </div>
+}

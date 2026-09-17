@@ -1,0 +1,131 @@
+<h1>Додати книгу</h1>
+
+<form
+  #itemForm="ngForm"
+  (ngSubmit)="addItem(itemForm)"
+>
+
+  <!-- Назва книги -->
+  <div>
+    <label for="title">Назва книги:</label>
+
+    <input
+      type="text"
+      id="title"
+      name="title"
+      [(ngModel)]="newItem.title"
+      required
+      minlength="2"
+      maxlength="50"
+      #titleRef="ngModel"
+    >
+
+    <div *ngIf="submitted && titleRef.invalid">
+
+      <small *ngIf="titleRef.errors?.['required']">
+        Назва книги обов'язкова
+      </small>
+
+      <small *ngIf="titleRef.errors?.['minlength']">
+        Назва повинна містити мінімум 2 символи
+      </small>
+
+      <small *ngIf="titleRef.errors?.['maxlength']">
+        Назва повинна містити максимум 50 символів
+      </small>
+
+    </div>
+  </div>
+
+
+  <!-- Автор -->
+  <div>
+    <label for="author">Автор:</label>
+
+    <input
+      type="text"
+      id="author"
+      name="author"
+      [(ngModel)]="newItem.author"
+      required
+      minlength="3"
+      maxlength="50"
+      #authorRef="ngModel"
+    >
+
+    <div *ngIf="submitted && authorRef.invalid">
+
+      <small *ngIf="authorRef.errors?.['required']">
+        Вкажіть автора
+      </small>
+
+      <small *ngIf="authorRef.errors?.['minlength']">
+        Ім'я автора повинно містити мінімум 3 символи
+      </small>
+
+      <small *ngIf="authorRef.errors?.['maxlength']">
+        Ім'я автора повинно містити максимум 50 символів
+      </small>
+
+    </div>
+  </div>
+
+
+  <!-- Опис книги -->
+  <div>
+    <label for="description">Опис книги:</label>
+
+    <textarea
+      id="description"
+      name="description"
+      [(ngModel)]="newItem.description"
+      required
+      minlength="10"
+      maxlength="200"
+      #descriptionRef="ngModel"
+    ></textarea>
+
+    <div *ngIf="submitted && descriptionRef.invalid">
+
+      <small *ngIf="descriptionRef.errors?.['required']">
+        Опис книги обов'язковий
+      </small>
+
+      <small *ngIf="descriptionRef.errors?.['minlength']">
+        Опис повинен містити мінімум 10 символів
+      </small>
+
+      <small *ngIf="descriptionRef.errors?.['maxlength']">
+        Опис повинен містити максимум 200 символів
+      </small>
+
+    </div>
+  </div>
+
+
+  <!-- Кнопка -->
+  <button type="submit">
+    Додати книгу
+  </button>
+
+</form>
+
+
+<!-- Список книг -->
+<h2>Додані книги</h2>
+
+<div *ngFor="let book of books">
+
+  <h3>{{ book.title }}</h3>
+
+  <p>
+    <strong>Автор:</strong>
+    {{ book.author }}
+  </p>
+
+  <p>
+    <strong>Опис:</strong>
+    {{ book.description }}
+  </p>
+
+</div>

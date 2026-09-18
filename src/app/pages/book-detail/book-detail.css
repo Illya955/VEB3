@@ -1,0 +1,46 @@
+.detail-page {
+  padding: 40px 20px;
+}
+
+.book-detail,
+.not-found {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-detail h1,
+.not-found h1 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.book-detail p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.description {
+  color: #555;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 18px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  background: #2980b9;
+}
+
+.not-found {
+  text-align: center;
+}

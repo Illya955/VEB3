@@ -1,0 +1,28 @@
+<div class="books-page">
+
+  <h1>📚 Список книг</h1>
+
+  <div class="books-list">
+
+    @for (book of books; track book.id) {
+      <div class="book-card">
+
+        <h2>{{ book.title }}</h2>
+
+        <p class="author">
+          <strong>Автор:</strong> {{ book.author }}
+        </p>
+
+        <a
+          [routerLink]="['/book', book.id]"
+          class="details-button"
+        >
+          Детальніше
+        </a>
+
+      </div>
+    }
+
+  </div>
+
+</div>

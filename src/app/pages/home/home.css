@@ -1,0 +1,28 @@
+.home {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.home h1 {
+  font-size: 36px;
+  color: #2c3e50;
+}
+
+.home p {
+  font-size: 18px;
+  color: #555;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.button:hover {
+  background: #2980b9;
+}

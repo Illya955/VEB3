@@ -1,0 +1,59 @@
+
+"use server";
+
+import { z } from "zod";
+
+const schema = z.object({
+  fullName: z.string()
+    .trim()
+    .min(2, "Ім'я повинно містити мінімум 2 символи"),
+
+  email: z.email("Введіть коректну електронну пошту"),
+
+  topic: z.enum(
+    ["Підручник", "Довідник", "Художня"],
+    "Оберіть тип книги"
+  ),
+
+  details: z.string()
+    .trim()
+    .min(5, "Назва книги повинна містити мінімум 5 символів"),
+});
+
+export type FormState = {
+  success: boolean;
+  message: string;
+  errors: {
+    fullName?: string[];
+    email?: string[];
+    topic?: string[];
+    details?: string[];
+  };
+};
+
+export async function submitRequest(
+  _prev: FormState,
+  formData: FormData
+): Promise<FormState> {
+
+  const result = schema.safeParse({
+    fullName: formData.get("fullName"),
+    email: formData.get("email"),
+    topic: formData.get("topic"),
+    details: formData.get("details"),
+  });
+
+  if (!result.success) {
+    return {
+      success: false,
+      message: "Виправте помилки у формі",
+      errors: z.flattenError(result.error).fieldErrors,
+    };
+  }
+
+  return {
+    success: true,
+    message: "Заявку на книгу перевірено!",
+    errors: {},
+  };
+}
